@@ -16,6 +16,10 @@ JOBFILE="${BASE}.job"
 
 CSVFILE="${BASE}.csv"
 
+#filename=/root/fioa/fioresults
+
+#filename=/mnt/disks/200gb-dir/fioresults
+#filename=/mnt/resource/fioresults
 
 
 cat > ${JOBFILE} <<__EOF__
@@ -24,19 +28,16 @@ cat > ${JOBFILE} <<__EOF__
 
 ioengine=libaio
 
-buffered=0
 
-bs=16k
+bs=4k
 
-iodepth=32
+iodepth=16
 
-runtime=60
+runtime=120
 
 time_based
 
-size=1MB
-
-ioengine=libaio
+size=1GB
 
 direct=1
 
@@ -48,7 +49,8 @@ norandommap
 
 group_reporting
 
-filename=/root/200gbdrive/fioresults
+
+filename=/mnt/disks/200gb-dir/fioresults
 
 
 numjobs=5
