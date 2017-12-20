@@ -37,7 +37,7 @@ runtime=120
 
 time_based
 
-size=1GB
+size=1mb
 
 direct=1
 
