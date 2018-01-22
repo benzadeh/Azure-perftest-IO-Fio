@@ -16,10 +16,6 @@ JOBFILE="${BASE}.job"
 
 CSVFILE="${BASE}.csv"
 
-#filename=/root/fioa/fioresults
-
-#filename=/mnt/disks/200gb-dir/fioresults
-#filename=/mnt/resource/fioresults
 
 
 cat > ${JOBFILE} <<__EOF__
@@ -28,34 +24,39 @@ cat > ${JOBFILE} <<__EOF__
 
 ioengine=libaio
 
+buffered=0
 
 bs=4k
 
-iodepth=16
+iodepth=32
 
-runtime=120
+runtime=20
 
 time_based
 
-size=1mb
+size=10G
+
+ioengine=libaio
 
 direct=1
 
 invalidate=1
 
-fsync_on_close=1
+verify=0
 
-norandommap
+verify_fatal=0
+
+randrepeat=0
 
 group_reporting
 
-
-filename=/mnt/disks/200gb-dir/fioresults
-
+filename=/dev/sdc1
 
 numjobs=5
 
+fsync_on_close=1
 
+norandommap
 
 [readwrite]
 
